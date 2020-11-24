@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+	<title>Cadastro de Músicas</title>
+</h:head>
+<h:body>
+<h:form>
+	<p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
+    
+	<p:panel header="Cadastro de Músicas">
+		<p:panelGrid columns="3" id="grid">
+			<p:outputLabel for="nome" value="Nome da música"/>
+			<p:inputText id="nome" value="#{musicaBean.musica.nome}"></p:inputText>
+			<p:message for="nome"/>
+			
+			<p:outputLabel value="estilo" for="estilo"/>
+			<p:inputText id="estilo" value="#{musicaBean.musica.estilo}"/>
+			<p:message for="estilo"/>
+			
+			<p:commandButton value="Salvar" action="#{musicaBean.salvar}" update="grid"></p:commandButton>
+			<p:button value="Listar" outcome="listar.xhtml"></p:button>
+		</p:panelGrid>
+	
+	</p:panel>
+</h:form>
+</h:body>
+</html>
